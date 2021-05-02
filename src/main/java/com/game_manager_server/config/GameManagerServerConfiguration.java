@@ -18,7 +18,7 @@ public class GameManagerServerConfiguration {
     private int numOfGenerateQuestion;
 
     @Bean
-    public GameManagerService baseService() {
+    public GameManagerService gameManagerService() {
         return new GameManagerServiceImpl(GameManagerPersistenceFacade());
     }
 

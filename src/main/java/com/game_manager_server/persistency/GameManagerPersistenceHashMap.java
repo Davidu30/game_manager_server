@@ -39,8 +39,9 @@ public class GameManagerPersistenceHashMap implements GameManagerPersistenceFaca
 
     @Override
     public Game getGame(String gameId) throws GameManagerPersistencyException {
-        LOGGER.debug("Receiving game report from DB");
+        LOGGER.debug("Receiving game from DB");
         Game result = gamesHashMap.get(gameId);
+        LOGGER.debug("Received game {} from DB", result);
         return result;
     }
 
@@ -71,13 +72,13 @@ public class GameManagerPersistenceHashMap implements GameManagerPersistenceFaca
     public List<Game> getAllGames() {
         LOGGER.debug("Receiving all the games from DB");
         List<Game> games = new ArrayList<Game>(gamesHashMap.values());
-        LOGGER.debug("Received all the records from DB");
+        LOGGER.debug("Received all the games from DB");
         return games;
     }
 
     @Override
     public void clearDB() {
-        LOGGER.debug("Clearing all the records from DB");
+        LOGGER.debug("Clearing all the games from DB");
         gamesHashMap.clear();
     }
 

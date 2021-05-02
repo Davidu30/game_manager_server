@@ -24,7 +24,7 @@ public class GameManagerController {
 
     @PostMapping("answerQuestion")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> reportDailyWorkingHours(@RequestBody @Valid AnswerQuestionRequestDto answerQuestionRequestDto) throws IllegalArgumentException, GameManagerPersistencyException {
+    public ResponseEntity<?> answerQuestion(@RequestBody @Valid AnswerQuestionRequestDto answerQuestionRequestDto) throws IllegalArgumentException, GameManagerPersistencyException {
         LOGGER.debug("Got request {}", answerQuestionRequestDto);
         AnswerQuestionResponseDto answerQuestionResponse = gameManagerService.answerQuestion(answerQuestionRequestDto);
 
@@ -34,7 +34,7 @@ public class GameManagerController {
 
     @PostMapping("getLeaderboard")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getUserReport(@RequestBody @Valid GetLeaderboardRequestDto getLeaderboardRequest) throws IllegalArgumentException, GameManagerPersistencyException {
+    public ResponseEntity<?> getLeaderboard(@RequestBody @Valid GetLeaderboardRequestDto getLeaderboardRequest) throws IllegalArgumentException, GameManagerPersistencyException {
         LOGGER.debug("Got request {}", getLeaderboardRequest);
         Game game = gameManagerService.getLeaderBoard(getLeaderboardRequest.getGameId());
         if(game == null) {
